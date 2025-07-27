@@ -1,0 +1,37 @@
+
+##### statical routing
+spring :
+  application:
+    name: GatewayService
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/ecommerce-app-realm
+  cloud :
+      gateway:
+        routes :
+          - id : OrderService
+            uri: lb://OrderService
+            predicates:
+              - Path=/api/orders/**
+          - id : ProductService
+            uri : lb://ProductService
+            predicates:
+              - Path=/api/products/**
+          - id : ClientService
+            uri: lb://ClientService
+            predicates:
+               - Path=/api/clients/**
+server:
+  port: 8888
+eureka:
+  instance:
+    prefer-ip-address: true
+  client :
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+
+
+
+
