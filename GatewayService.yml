@@ -7,7 +7,7 @@ spring :
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/ecommerce-app-realm
+          issuer-uri: http://host.docker.internal:8080/realms/ecommerce-app-realm
   cloud :
       gateway:
         routes :
@@ -30,7 +30,7 @@ eureka:
     prefer-ip-address: true
   client :
     service-url:
-      defaultZone : http://localhost:8761/eureka/
+      defaultZone : http://host.docker.internal:8761/eureka/
 
 
 
