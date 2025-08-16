@@ -6,21 +6,7 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://keycloak:8080/realms/ecommerce-app-realm
-  cloud :
-      gateway:
-        routes :
-          - id : OrderService
-            uri: lb://OrderService
-            predicates:
-              - Path=/api/orders/**
-          - id : ProductService
-            uri : lb://ProductService
-            predicates:
-              - Path=/api/products/**
-          - id : ClientService
-            uri: lb://ClientService
-            predicates:
-               - Path=/api/clients/**
+
       
 eureka:
   instance:
