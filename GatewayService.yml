@@ -1,13 +1,13 @@
 
 ##### statical routing
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://keycloak:8080/realms/ecommerce-app-realm
 
-      
+spring : 
+  cloud : 
+    gateway:
+      discovery: 
+        locator : 
+          enabled : true
+          lower-case-service-id : true
 eureka:
   instance:
     prefer-ip-address: true
